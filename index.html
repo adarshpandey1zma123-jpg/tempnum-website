@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TempNum — Free Temporary Phone Numbers | Receive SMS & OTP Online</title>
+    <meta name="description"
+        content="Get free temporary phone numbers to receive SMS and OTP online. No registration required.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="bg-orb bg-orb-1"></div>
+        <div class="bg-orb bg-orb-2"></div>
+        <div class="bg-orb bg-orb-3"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <span class="logo-text">Temp<span class="logo-accent">Num</span></span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#numbers" class="nav-link">Numbers</a></li>
+                <li><a href="#send-otp" class="nav-link">Send OTP</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Compact) -->
+    <header class="hero" id="hero">
+        <div class="container hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-shield-alt"></i>
+                <span>100% Free & Private</span>
+            </div>
+            <h1 class="hero-title">
+                Receive OTP &
+                <span class="gradient-text">SMS Online</span>
+            </h1>
+            <p class="hero-subtitle">
+                Get free temporary phone numbers. Send an OTP to any number below and see it arrive instantly in the
+                inbox.
+            </p>
+            <a href="#numbers" class="btn btn-primary btn-lg">
+                <i class="fas fa-arrow-down"></i>
+                Get a Number Now
+            </a>
+        </div>
+    </header>
+
+    <!-- Send OTP Section -->
+    <section class="section" id="send-otp">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">
+                    <i class="fas fa-paper-plane"></i> Send OTP
+                </span>
+                <h2 class="section-title">Test <span class="gradient-text">OTP Delivery</span></h2>
+                <p class="section-subtitle">Send a custom OTP to any of our temp numbers and watch it arrive in the
+                    inbox in real time.</p>
+            </div>
+
+            <div class="otp-sender-card">
+                <div class="otp-form">
+                    <div class="otp-field">
+                        <label for="otpTargetNumber">Target Number</label>
+                        <select id="otpTargetNumber" class="otp-input">
+                            <!-- Populated by JS -->
+                        </select>
+                    </div>
+                    <div class="otp-field">
+                        <label for="otpSenderName">Sender Name</label>
+                        <select id="otpSenderName" class="otp-input">
+                            <option value="Google">Google</option>
+                            <option value="WhatsApp">WhatsApp</option>
+                            <option value="Amazon">Amazon</option>
+                            <option value="Facebook">Facebook</option>
+                            <option value="Instagram">Instagram</option>
+                            <option value="Microsoft">Microsoft</option>
+                            <option value="Twitter">Twitter</option>
+                            <option value="Uber">Uber</option>
+                            <option value="PayPal">PayPal</option>
+                            <option value="Telegram">Telegram</option>
+                            <option value="Netflix">Netflix</option>
+                            <option value="Snapchat">Snapchat</option>
+                            <option value="Custom">Custom...</option>
+                        </select>
+                        <input type="text" id="otpCustomSender" class="otp-input otp-hidden"
+                            placeholder="Enter custom sender name">
+                    </div>
+                    <div class="otp-field">
+                        <label for="otpCode">OTP Code</label>
+                        <div class="otp-code-row">
+                            <input type="text" id="otpCode" class="otp-input otp-code-input" placeholder="e.g. 482916"
+                                maxlength="8">
+                            <button class="btn btn-glass btn-sm" id="otpRandomBtn" title="Generate random OTP">
+                                <i class="fas fa-dice"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="otp-field">
+                        <label for="otpMessage">Message Template</label>
+                        <select id="otpMessage" class="otp-input">
+                            <option value="Your verification code is: {OTP}. Do not share this with anyone.">
+                                Verification code</option>
+                            <option value="{OTP} is your one-time password. It expires in 5 minutes.">One-time password
+                            </option>
+                            <option value="Your login OTP is {OTP}. Valid for 10 minutes.">Login OTP</option>
+                            <option value="Security code: {OTP}. Use this to complete your sign-in.">Security code
+                            </option>
+                            <option value="Use code {OTP} to verify your account.">Account verification</option>
+                            <option value="Your password reset code is {OTP}.">Password reset</option>
+                            <option value="custom">Custom message...</option>
+                        </select>
+                        <input type="text" id="otpCustomMessage" class="otp-input otp-hidden"
+                            placeholder="Use {OTP} as placeholder for the code">
+                    </div>
+                    <button class="btn btn-primary btn-lg otp-send-btn" id="otpSendBtn">
+                        <i class="fas fa-paper-plane"></i>
+                        Send OTP Now
+                    </button>
+                </div>
+                <div class="otp-preview">
+                    <div class="otp-preview-header">
+                        <i class="fas fa-eye"></i> Live Preview
+                    </div>
+                    <div class="otp-preview-phone">
+                        <div class="otp-preview-notch"></div>
+                        <div class="otp-preview-screen">
+                            <div class="otp-preview-msg" id="otpPreviewMsg">
+                                <div class="otp-preview-sender" id="otpPreviewSender">Google</div>
+                                <div class="otp-preview-body" id="otpPreviewBody">Your verification code is:
+                                    <strong>------</strong>. Do not share this with anyone.</div>
+                                <div class="otp-preview-time">Just now</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Numbers Section -->
+    <section class="section section-alt" id="numbers">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">
+                    <i class="fas fa-globe"></i> Available Numbers
+                </span>
+                <h2 class="section-title">Choose a <span class="gradient-text">Number</span></h2>
+                <p class="section-subtitle">Select a country, then click any number to view its SMS inbox with received
+                    OTPs.</p>
+            </div>
+
+            <!-- Country Filter -->
+            <div class="country-filter" id="countryFilter">
+                <button class="country-btn active" data-country="all">
+                    <span class="country-flag">🌍</span>
+                    <span class="country-name">All</span>
+                </button>
+                <button class="country-btn" data-country="us">
+                    <span class="country-flag">🇺🇸</span>
+                    <span class="country-name">USA</span>
+                </button>
+                <button class="country-btn" data-country="uk">
+                    <span class="country-flag">🇬🇧</span>
+                    <span class="country-name">UK</span>
+                </button>
+                <button class="country-btn" data-country="in">
+                    <span class="country-flag">🇮🇳</span>
+                    <span class="country-name">India</span>
+                </button>
+                <button class="country-btn" data-country="ca">
+                    <span class="country-flag">🇨🇦</span>
+                    <span class="country-name">Canada</span>
+                </button>
+                <button class="country-btn" data-country="de">
+                    <span class="country-flag">🇩🇪</span>
+                    <span class="country-name">Germany</span>
+                </button>
+                <button class="country-btn" data-country="fr">
+                    <span class="country-flag">🇫🇷</span>
+                    <span class="country-name">France</span>
+                </button>
+                <button class="country-btn" data-country="au">
+                    <span class="country-flag">🇦🇺</span>
+                    <span class="country-name">Australia</span>
+                </button>
+                <button class="country-btn" data-country="br">
+                    <span class="country-flag">🇧🇷</span>
+                    <span class="country-name">Brazil</span>
+                </button>
+                <button class="country-btn" data-country="jp">
+                    <span class="country-flag">🇯🇵</span>
+                    <span class="country-name">Japan</span>
+                </button>
+                <button class="country-btn" data-country="ru">
+                    <span class="country-flag">🇷🇺</span>
+                    <span class="country-name">Russia</span>
+                </button>
+                <button class="country-btn" data-country="nl">
+                    <span class="country-flag">🇳🇱</span>
+                    <span class="country-name">Netherlands</span>
+                </button>
+                <button class="country-btn" data-country="se">
+                    <span class="country-flag">🇸🇪</span>
+                    <span class="country-name">Sweden</span>
+                </button>
+            </div>
+
+            <!-- Number Cards Grid -->
+            <div class="numbers-grid" id="numbersGrid">
+                <!-- Cards injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SMS Inbox Modal -->
+    <div class="modal-overlay" id="smsModal">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-title-group">
+                    <div class="modal-phone-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div>
+                        <h3 class="modal-title" id="modalTitle">SMS Inbox</h3>
+                        <p class="modal-subtitle" id="modalSubtitle">+1 234 567 8900</p>
+                    </div>
+                </div>
+                <div class="modal-header-actions">
+                    <span class="modal-msg-count" id="modalMsgCount">0 messages</span>
+                    <button class="modal-close" id="modalClose">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Messages injected by JS -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-glass btn-sm" id="modalRefresh">
+                    <i class="fas fa-sync-alt"></i> Refresh
+                </button>
+                <button class="btn btn-accent btn-sm" id="modalSendOtp">
+                    <i class="fas fa-paper-plane"></i> Send OTP to this Number
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- OTP Sent Success Modal -->
+    <div class="modal-overlay" id="otpSuccessModal">
+        <div class="modal modal-sm">
+            <div class="otp-success-content">
+                <div class="otp-success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3>OTP Sent Successfully!</h3>
+                <p class="otp-success-details" id="otpSuccessDetails"></p>
+                <div class="otp-success-code" id="otpSuccessCode"></div>
+                <p class="otp-success-hint">Open the number's inbox to see the message</p>
+                <div class="otp-success-actions">
+                    <button class="btn btn-primary btn-sm" id="otpSuccessViewInbox">
+                        <i class="fas fa-envelope-open"></i> View Inbox
+                    </button>
+                    <button class="btn btn-glass btn-sm" id="otpSuccessClose">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="section" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">
+                    <i class="fas fa-question-circle"></i> FAQ
+                </span>
+                <h2 class="section-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>How do I receive an OTP?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Copy any phone number from the list, use it on any website for verification, then click "View
+                            Inbox" on that number to see the OTP message arrive. You can also use the "Send OTP" section
+                            above to test it.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Is this service really free?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! All numbers and SMS reading features are completely free with no hidden charges.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Can others see my messages?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, these are shared public numbers. All messages are visible to anyone viewing that
+                            number's inbox. Do not use them for sensitive communications.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Which services work with these numbers?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Our numbers work with most services that require SMS verification — social media, email
+                            providers, messaging apps, etc. Some services may block known temporary numbers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Compact) -->
+    <footer class="footer">
+        <div class="container footer-compact">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <span class="logo-text">Temp<span class="logo-accent">Num</span></span>
+            </a>
+            <p class="footer-copy">&copy; 2026 TempNum. Free temp numbers for SMS & OTP verification.</p>
+            <p class="footer-disclaimer">
+                <i class="fas fa-exclamation-triangle"></i>
+                For legitimate purposes only. Do not use for illegal activities.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle" id="toastIcon"></i>
+        <span id="toastMessage">Number copied to clipboard!</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
